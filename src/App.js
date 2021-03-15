@@ -19,10 +19,11 @@ const emojis = [
 
 function App() {
   const greeting = "greeting";
+  const displayAction = false;
     return (
       <div className = "container">
       <h1 id={greeting}>Hello, World</h1>
-      <p> I am writing JSX</p>
+      {displayAction && <p> I am writing JSX</p>}
       <ul>
         {/* map over the emojis array in the <ul> tag and return a <li>. 
         In each <li> use the emoji name as the key prop. The button will 
