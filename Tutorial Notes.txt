@@ -1,0 +1,86 @@
+Creating an onClick Event Handler on a button: 
+
+<button
+            onClick={event => alert(event.target.id)}
+          >
+            <span role="img" aria-label="woman dancing" id="woman dancing">💃</span>
+ </button>
+
+onClick gets camelCased since its JSX, 
+onClick uses an anonymous function to retrieve information about the item 
+that was clicked. 
+
+an anonymous function is simply an unnamed function. 
+
+You added an anonymous arrow function that will get the event from the clicked 
+button, and the event will have a target that is the <span> element. 
+
+The information you need is in the id attribute, which you can access with event.target.id.
+ You can trigger the alert with the alert() function.
+
+
+-------========-----------============--------------=============------------===========
+
+You can reduce a duplication by declaring the function once and passing it to each 
+onClick action. Since the function does not rely on anything other than inputs and 
+outputs, you can declare it outside the main component function. 
+
+----> const displayEmojiName = event => alert(event.target.id);   <-------
+
+function App() {
+  const greeting = "greeting";
+  return(
+    <div className="container">
+      <h1 id={greeting}>Hello, World</h1>
+      <p>I am writing JSX</p>
+      <ul>
+        <li>
+          <button
+      ------>  onClick={displayEmojiName}  <-----------------
+          >
+            <span role="img" aria-label="grinning face" id="grinning face">😀</span>
+          </button>
+
+
+---------==============---------------===============-------------============----
+Step 4 — Mapping Over Data to Create Elements
+---------==============---------------===============-------------============----
+
+To use JavaScript inside of JSX, you need to surround it with curly braces: {}. 
+
+To create React components, you’ll need to convert the data to JSX elements. 
+To do this, you’ll map over the data and return a JSX element. There are a few 
+things you’ll need to keep in mind as you write the code.
+
+First, a group of items needs to be surrounded by a container <div>. 
+Second, every item needs a special property called key. 
+The key needs to be a unique piece of data that React can use to keep 
+track of the elements so it can know when to update the component.
+Whenever you are working with loops you will need to add a simple 
+string as a key.
+
+Example: 
+
+    ..
+const names = [
+    "Atul Gawande",
+    "Stan Sakai",
+    "Barry Lopez"
+];
+
+return(
+    <div>
+        {names.map(name => <div key={name}>{name}</div>)}
+    </div>
+)
+...
+
+Resulting HTML would be: 
+
+...
+<div>
+    <div>Atul Gawande</div>
+    <div>Stan Sakai</div>
+    <div>Barry Lopez</div>
+</div>
+...

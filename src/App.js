@@ -18,6 +18,9 @@ const emojis = [
 ];
 
 function App() {
+  /* variables like const greeting are passed within the return statement and within 
+  the </> brackets within curly braces {} */
+  
   const greeting = "greeting";
   const displayAction = false;
     return (
